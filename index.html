@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="love.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div id="passwordScreen">
+        <h2>Enter Our First Anniversary :></h2>
+        <input type="date" id="password" class="form-control w-50">
+        <button class="mt-3" onclick="checkPassword()">Unlock</button>
+        <p id="errorMessage" class="text-danger hidden mt-2">Wrong date!</p>
+
+    </div>
+
+    <div id="mainContent" class="container mt-5">
+        <h1>Happy Valentine's Day, My Kondee! 💖</h1>
+        <p>"When the sun sets, no candle can replace it."</p>
+        <p></p>
+        <p>I love you more than Valorant, Games, Food, my motorcycle..</p>
+        <button class="mt-3" onclick="showMessage()">Reveal</button>
+        <p id="message" class="hidden mt-3">You're the best thing that ever happened to me! ❤️</p>
+        
+        <div id="photos" class="hidden row mt-4">
+            <div class="card-wrapper">
+                <img src="img1.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>Why is this so cute?</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img2.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>First day in PH with Sisig Sarap</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img3.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>What are you looking at?</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img4.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>♡♡♡♡</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img5.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>I forgot who I look like?</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img6.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>Thank you aunt Reya</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img7.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>We look cool here</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img8.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>hahahaha</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img9.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>You look so mad here XD</p>
+            </div>
+            <div class="card-wrapper">
+                <img src="img10.JPG" class="photo" alt="Photo 1">
+                <p></p>
+                <p>I love you.</p>
+            </div>
+            <div class="card-wrapper">
+                <h2>My Love Letter to You 💌</h2>
+                <p class="card-text">I know that we fought a lot recently but I have to do it for this haha. You will always be special for me of course I wont forget about you. ❤️</p>
+                <p class="card-text">I can't wait to see you again baby.</p>
+            </div>
+            <button class="mt-3" onclick="showFinalQuestion()">Click Me</button>
+        </div>
+    </div>
+
+    <div id="finalQuestion" class="container hidden">
+        <img src="please.jpg" class="img-fluid" alt="Valentine Image">
+        <h2 class="mt-4">Will you be my Valentine?</h2>
+        <button class="mt-3">Yes</button>
+        <p></p>
+        <button class="mt-3">Of Course</button>
+    </div>
+
+    <div id="messageAfterQuestion" class="container hidden">
+        <h2>Flowers on its way today!</h2>
+        <img src="delivery.gif" alt="Flowers" class="img-fluid mt-3">
+        <h2 class="mt-3">I love you</h2>
+        <p>- Mike</p>
+        <p></p>
+        <p></p>
+        <h2 class="mt-3">ALSO DONT GET MAD!</h2>
+        <p>or i will. :></p>
+    </div>
+    
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const correctPassword = "2022-05-28"; // Change this
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (password === correctPassword) {
+                document.getElementById("passwordScreen").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+                document.getElementById("bgMusic").play();
+            } else {
+                errorMessage.classList.remove("hidden");
+            }
+        }
+
+        function showMessage() {
+            document.getElementById("message").classList.remove("hidden");
+            document.getElementById("photos").classList.remove("hidden");
+        }
+
+        function showFinalQuestion() {
+            document.getElementById("mainContent").style.display = "none";
+            const finalQuestion = document.getElementById("finalQuestion");
+            finalQuestion.style.display = "block";
+            setTimeout(() => {
+                finalQuestion.classList.add("show");
+            }, 50);  
+        }
+
+        function hideFinalQuestion() {
+            const finalQuestion = document.getElementById("finalQuestion");
+            finalQuestion.style.display = "none"; 
+            const messageAfterQuestion = document.getElementById("messageAfterQuestion");
+            messageAfterQuestion.style.display = "block";
+            messageAfterQuestion.classList.remove("hidden");
+        }
+        document.querySelectorAll('#finalQuestion button').forEach(button => {
+            button.addEventListener('click', hideFinalQuestion); 
+        });
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
